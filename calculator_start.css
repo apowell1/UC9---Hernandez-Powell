@@ -1,0 +1,17 @@
+#body {
+    background-color: black;
+    text-align: center;
+}
+
+#header {
+    color: white;
+    font-family: monospace;
+}
+
+button {
+    width: 6.5%;
+}
+
+#screen {
+    text-align: right;
+}
