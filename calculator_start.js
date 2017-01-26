@@ -10,7 +10,7 @@
 * 9. Super Duper Challenge: Add exponents (negatives too!)
 */
 
-var currentInput = "0";
+var current_input = "0";
 var memory = "0";
 var operator = 0;
 var maxLength = 20;
@@ -20,7 +20,7 @@ var mem = "0";
 * Helper function for displaying the current input
 */
 function displayCurrentInput() {
-    document.getElementById('screen').value = currentInput;
+    document.getElementById('screen').value = current_input;
 }
 
 /**
@@ -28,8 +28,8 @@ function displayCurrentInput() {
 * @param {number} Digit that user wants to add to what is the current input
 */
 function addDigit(dig) {
-    if ((eval(currentInput) == 0) && (currentInput.indexOf(".") == -1)) {
-        currentInput = dig;
+    if ((eval(current_input) == 0) && (current_input.indexOf(".") == -1)) {
+        current_input = dig;
     } else if (currentInput.length > maxLength) {
         currentInput = "OVERLOAD ERROR";
     } else {
