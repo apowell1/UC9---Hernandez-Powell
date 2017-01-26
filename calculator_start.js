@@ -19,7 +19,7 @@ var mem = "0";
 /**
 * Helper function for displaying the current input
 */
-function displayCurrentInput() {
+function displayCurrentInput () {
     document.getElementById('screen').value = current_input;
 }
 
@@ -27,7 +27,7 @@ function displayCurrentInput() {
 * Adds a digit to the current input
 * @param {number} Digit that user wants to add to what is the current input
 */
-function addDigit(dig) {
+function addDigit (dig) {
     if ((eval(current_input) == 0) && (current_input.indexOf(".") == -1)) {
         current_input = dig;
     } else if (currentInput.length > maxLength) {
@@ -41,7 +41,7 @@ function addDigit(dig) {
 /**
 * Adds a decimal to the current input
 */
-function addDecimal() {
+function addDecimal () {
     if (currentInput.length == 0) {
         // no leading ".", use "0."
         currentInput = "0.";
@@ -57,7 +57,7 @@ function addDecimal() {
 /**
 * Clears current input, operator, memory, and stored memory
 */
-function allClear() {
+function allClear () {
     currentInput = "0";
     operator = 0;                // clear operator
     memory = "0";                  // clear memory
@@ -67,8 +67,9 @@ function allClear() {
 
 /**
 * Stores the last operator pushed for multiply, divide, add, or subtract
+* @param {boolean} Operator used
 */
-function storeOperator(op) {
+function storeOperator (op) {
     if (op.indexOf("*") > -1) { operator = 1; };       //codes for *
     if (op.indexOf("/") > -1) { operator = 2; };       // slash (divide)
     if (op.indexOf("+") > -1) { operator = 3; };       // sum
@@ -82,7 +83,7 @@ function storeOperator(op) {
 /**
 * Calculates using operator, the memory and current input
 */
-function calculate() {
+function calculate () {
     if (operator == 1) { currentInput = eval(memory) * eval(currentInput); };
     if (operator == 2) {
     if (currentInput == 0) {
@@ -99,7 +100,7 @@ function calculate() {
 /**
 * Change the sign of the current input
 */
-function changeSign() {
+function changeSign () {
     var input = document.getElementById('screen').value;
     var pm = input * -1;
     currentInput = pm;
@@ -109,7 +110,7 @@ function changeSign() {
 /**
 * Clear the current input back to 0
 */
-function partClear() {
+function partClear () {
     currentInput = "0";
     displayCurrentInput();
 }
@@ -117,7 +118,7 @@ function partClear() {
 /**
 * Change the current input to a percentage
 */
-function percentage() {
+function percentage () {
    var input =  document.getElementById('screen').value;
    var percent = input/100;
    currentInput = percent;
@@ -127,7 +128,7 @@ function percentage() {
 /**
 * Calculate the factorial of the current input
 */
-function factorial() {
+function factorial () {
     var input = document.getElementById('screen').value;
     var x = input;
     for (i = input-1; i > 1; i--) {
@@ -140,7 +141,7 @@ function factorial() {
 /**
 * Calculate the square of the current input
 */
-function square() {
+function square () {
     var input = document.getElementById('screen').value;
     var square = Math.pow(input, 2);
     currentInput = square;
@@ -150,7 +151,7 @@ function square() {
 /**
 * Calculate the square root of the current input
 */
-function squareRoot() {
+function squareRoot () {
     var input = document.getElementById('screen').value;
     if (input <0) {
         input = input*(-1);
@@ -167,7 +168,7 @@ function squareRoot() {
 /**
 * Calculate the inverse of the current input
 */
- function inverse() {
+ function inverse () {
      var input = document.getElementById('screen').value;
      var inverse = 1/input;
      currentInput = inverse;
@@ -177,7 +178,7 @@ function squareRoot() {
 /**
 * Calculate the sine of the current input in radians
 */
-function sine() {
+function sine () {
     currentInput = Math.sin(currentInput);
     displayCurrentInput();
 }
@@ -185,7 +186,7 @@ function sine() {
 /**
 * Calculate the cosine of a number in radians
 */
-function cosine() {
+function cosine () {
     currentInput = Math.cos(currentInput);
     displayCurrentInput();
 }
@@ -193,7 +194,7 @@ function cosine() {
 /**
 * Calculate the tangent of a number in radians
 */
-function tangent() {
+function tangent () {
     currentInput = Math.tan(currentInput);
     displayCurrentInput();
 }
@@ -201,7 +202,7 @@ function tangent() {
 /**
 * Calculate the sine of a number in degrees
 */
-function sineDegrees() {
+function sineDegrees () {
     currentInput = Math.sin(currentInput * Math.PI/180);
     displayCurrentInput();
 }
@@ -209,7 +210,7 @@ function sineDegrees() {
 /**
 * Calculate the cosine of a number in degrees
 */
-function cosineDegrees() {
+function cosineDegrees () {
     currentInput = Math.cos(currentInput * Math.PI/180);
     displayCurrentInput();
 }
@@ -217,7 +218,7 @@ function cosineDegrees() {
 /**
 * Calculate the tangent of a number in degrees
 */
-function tangentDegrees() {
+function tangentDegrees () {
     currentInput = Math.tan(currentInput * Math.PI/180);
     displayCurrentInput();
 }
@@ -225,7 +226,7 @@ function tangentDegrees() {
 /**
 * Stores current input in memory
 */
-function ms() {
+function ms () {
     var input = document.getElementById('screen').value;
     mem = input;
     currentInput = "0";
@@ -235,7 +236,7 @@ function ms() {
 /**
 * Clears stored memory
 */
-function mc() {
+function mc () {
     mem = 0;
 }
 
@@ -250,7 +251,7 @@ function mr () {
 /**
 * Adds screen value to memory value
 */
-function mPlus() {
+function mPlus () {
     currentInput = eval(mem) + eval(currentInput);
     displayCurrentInput();
 }
@@ -258,7 +259,7 @@ function mPlus() {
 /**
 * Subtracts screen value from memory value
 */
-function mMinus() {
+function mMinus () {
     currentInput = eval(mem) - eval(currentInput);
     displayCurrentInput();
 }
