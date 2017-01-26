@@ -25,6 +25,7 @@ function displayCurrentInput() {
 
 /**
 * Adds a digit to the current input
+* @param {number} Digit that user wants to add to what is the current input
 */
 function addDigit(dig) {
     if ((eval(currentInput) == 0) && (currentInput.indexOf(".") == -1)) {
