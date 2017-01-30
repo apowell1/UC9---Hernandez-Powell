@@ -13,7 +13,7 @@
 var current_input = "0";
 var memory = "0";
 var operator = 0;
-var maxLength = 20;
+var max_length = 20;
 var mem = "0";
 
 /**
@@ -30,7 +30,7 @@ function displayCurrentInput() {
 function addDigit(dig) {
     if ((eval(current_input) == 0) && (current_input.indexOf(".") == -1)) {
         current_input = dig;
-    } else if (currentInput.length > maxLength) {
+    } else if (current_input.length > maxLength) {
         currentInput = "OVERLOAD ERROR";
     } else {
         currentInput = currentInput + dig;
