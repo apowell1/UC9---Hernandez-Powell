@@ -27,11 +27,11 @@ function displayCurrentInput() {
 function addDigit(dig) {
     if ((eval(current_input) == 0) && (current_input.indexOf(".") == -1)) {
         current_input = dig;
-    } else if (current_input.length > maxLength) {
-        currentInput = "OVERLOAD ERROR";
+    } else if (current_input.length > max_length) {
+        current_input = "OVERLOAD ERROR";
     }
     else {
-        currentInput = currentInput + dig;
+        current_input = current_input + dig;
     }
     displayCurrentInput();
 }
@@ -39,14 +39,14 @@ function addDigit(dig) {
  * Adds a decimal to the current input
  */
 function addDecimal() {
-    if (currentInput.length == 0) {
+    if (current_input.length == 0) {
         // no leading ".", use "0."
-        currentInput = "0.";
+        current_input = "0.";
     }
     else {
         // First make sure one doesn't exist
-        if (currentInput.indexOf(".") == -1) {
-            currentInput = currentInput + ".";
+        if (current_input.indexOf(".") == -1) {
+            current_input = current_input + ".";
         }
     }
     displayCurrentInput();
@@ -55,7 +55,7 @@ function addDecimal() {
  * Clears current input, operator, memory, and stored memory
  */
 function allClear() {
-    currentInput = "0";
+    current_input = "0";
     operator = 0; // clear operator
     memory = "0"; // clear memory
     displayCurrentInput();
@@ -81,8 +81,8 @@ function storeOperator(op) {
     if (op.indexOf("x^y") > -1) {
         operator = 5;
     }; // exponent
-    memory = currentInput; // store value
-    currentInput = "";
+    memory = current_input; // store value
+    current_input = "";
     displayCurrentInput();
 }
 /**
@@ -90,24 +90,24 @@ function storeOperator(op) {
  */
 function calculate() {
     if (operator == 1) {
-        currentInput = eval(memory) * eval(currentInput);
+        current_input = eval(memory) * eval(current_input);
     };
     if (operator == 2) {
-        if (currentInput == 0) {
-            currentInput = "CANNOT DIVIDE BY 0";
+        if (current_input == 0) {
+            current_input = "CANNOT DIVIDE BY 0";
         }
         else {
-            currentInput = eval(memory) / eval(currentInput);
+            current_input = eval(memory) / eval(current_input);
         }
     };
     if (operator == 3) {
-        currentInput = eval(memory) + eval(currentInput);
+        current_input = eval(memory) + eval(current_input);
     };
     if (operator == 4) {
-        currentInput = eval(memory) - eval(currentInput);
+        current_input = eval(memory) - eval(current_input);
     };
     if (operator == 5) {
-        currentInput = Math.pow(eval(memory), currentInput);
+        current_input = Math.pow(eval(memory), current_input);
     };
     operator = 0; // clear operator
     memory = "0"; // clear memory
@@ -119,14 +119,14 @@ function calculate() {
 function changeSign() {
     var input = document.getElementById('screen').value;
     var pm = input * -1;
-    currentInput = pm;
+    current_input = pm;
     displayCurrentInput();
 }
 /**
  * Clear the current input back to 0
  */
 function partClear() {
-    currentInput = "0";
+    current_input = "0";
     displayCurrentInput();
 }
 /**
@@ -135,7 +135,7 @@ function partClear() {
 function percentage() {
     var input = document.getElementById('screen').value;
     var percent = input / 100;
-    currentInput = percent;
+    current_input = percent;
     displayCurrentInput();
 }
 /**
@@ -147,7 +147,7 @@ function factorial() {
     for (i = input - 1; i > 1; i--) {
         x = x * i;
     }
-    currentInput = x;
+    current_input = x;
     displayCurrentInput();
 }
 /**
@@ -156,7 +156,7 @@ function factorial() {
 function square() {
     var input = document.getElementById('screen').value;
     var square = Math.pow(input, 2);
-    currentInput = square;
+    current_input = square;
     displayCurrentInput();
 }
 /**
@@ -168,11 +168,11 @@ function squareRoot() {
         input = input * (-1);
         var sqare = Math.sqrt(input);
         var newSqare = sqare + "i"
-        currentInput = newSqare;
+        current_input = newSqare;
     }
     else {
         var sqare = Math.sqrt(input);
-        currentInput = sqare;
+        current_input = sqare;
     }
     displayCurrentInput();
 }
@@ -182,35 +182,35 @@ function squareRoot() {
 function inverse() {
     var input = document.getElementById('screen').value;
     var inverse = 1 / input;
-    currentInput = inverse;
+    current_input = inverse;
     displayCurrentInput();
 }
 /**
  * Calculate the sine of the current input in radians
  */
 function sine() {
-    currentInput = Math.sin(currentInput);
+    current_input = Math.sin(current_input);
     displayCurrentInput();
 }
 /**
  * Calculate the cosine of a number in radians
  */
 function cosine() {
-    currentInput = Math.cos(currentInput);
+    current_input = Math.cos(current_input);
     displayCurrentInput();
 }
 /**
  * Calculate the tangent of a number in radians
  */
 function tangent() {
-    currentInput = Math.tan(currentInput);
+    current_input = Math.tan(current_input);
     displayCurrentInput();
 }
 /**
  * Calculate the sine of a number in degrees
  */
 function sineDegrees() {
-    currentInput = Math.sin(currentInput * Math.PI / 180);
+    current_input = Math.sin(current_input * Math.PI / 180);
     displayCurrentInput();
 }
 
@@ -218,14 +218,14 @@ function sineDegrees() {
  * Calculate the cosine of a number in degrees
  */
 function cosineDegrees() {
-    currentInput = Math.cos(currentInput * Math.PI / 180);
+    current_input = Math.cos(current_input * Math.PI / 180);
     displayCurrentInput();
 }
 /**
  * Calculate the tangent of a number in degrees
  */
 function tangentDegrees() {
-    currentInput = Math.tan(currentInput * Math.PI / 180);
+    current_input = Math.tan(current_input * Math.PI / 180);
     displayCurrentInput();
 }
 /**
@@ -234,7 +234,7 @@ function tangentDegrees() {
 function ms() {
     var input = document.getElementById('screen').value;
     mem = input;
-    currentInput = "0";
+    current_input = "0";
     displayCurrentInput();
 }
 /**
@@ -247,20 +247,20 @@ function mc() {
  * Recalls value stored in memory
  */
 function mr() {
-    currentInput = mem;
+    current_input = mem;
     displayCurrentInput();
 }
 /**
  * Adds screen value to memory value
  */
 function mPlus() {
-    currentInput = eval(mem) + eval(currentInput);
+    current_input = eval(mem) + eval(current_input);
     displayCurrentInput();
 }
 /**
  * Subtracts screen value from memory value
  */
 function mMinus() {
-    currentInput = eval(mem) - eval(currentInput);
+    current_input = eval(mem) - eval(current_input);
     displayCurrentInput();
 }
