@@ -82,3 +82,10 @@ QUnit.test( "Divide by zero test", function( assert ) {
     allClear();
 });
 //US9: Bug Alert! As an easily confused user I don't want to be able to type numbers into the screen that causes some of the numbers to disappear off the screen, thus confusing me about what I actually typed.
+
+QUnit.test( "Overload test", function( assert ) {
+    addDigit('555555555555555555555');
+    addDigit('1');
+    assert.equal(document.getElementById("screen").value, "OVERLOAD ERROR", "Passed - Expected OVERLOAD ERROR");
+    allClear();
+});
