@@ -164,13 +164,15 @@ function square() {
  */
 function squareRoot() {
     var input = document.getElementById('screen').value;
-    if (input < 0) {
+    if (input == "-1") {
+        input = "i";
+        current_input = input;
+    } else if (input < 0) {
         input = input * (-1);
         var sqare = Math.sqrt(input);
-        var newSqare = sqare + "i"
+        var newSqare = sqare + "i";
         current_input = newSqare;
-    }
-    else {
+    } else {
         var sqare = Math.sqrt(input);
         current_input = sqare;
     }
